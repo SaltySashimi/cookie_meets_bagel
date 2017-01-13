@@ -1,42 +1,84 @@
-# RUMBLE
-<img src='https://raw.github.com/cyspath/thunderbird/gh-pages/assets/images/tb-edited.gif' align='center' padding='10px'>
+# 情有可缘
 
-## [Play it live here] (http://107.170.239.150/)
-### Overview
+Voice-activated music player, which provides variety of useful information for every song that plays.
 
-Turn based strategy game made with object-oriented javascript and phaser.js.
-Players take turns to move/attack.
-AI player is coming soon.
+## Tech Stack
 
-### Stages
-There are four stages, each stage increases in difficulty.
-* Asteroids
-* Alien fleet wave one
-* Alien fleet wave two
-* Final Boss
+### Front-End
 
-### Animation/Graphics
+* [React](https://facebook.github.io/react/) along with [Redux](https://github.com/reactjs/redux) for rendering page views state container maintenance
+* [D3.js](https://d3js.org/) - library for visualizing data
+* [Bootstrap](http://getbootstrap.com/) - a mobile first front-end framework
 
-* No game engine was used. Explosion uses custom animation by snapshotting various frames of a sprite sheet in the Explosion class.
-* Images were edited on Gimp2 and stored in Cloudinary.
+### Back-End
 
-### Additional Details
+* [Node.js](https://nodejs.org/en/) with [Express](http://expressjs.com/) for serving pages and handling api requests
+* [mySQL](https://www.mysql.com/) as a database
+* [Sequelize](http://sequelizejs.com/) - an ORM for Node.js
+* [Annyang](https://talater.com/) - SpeechRecognition library
 
-* Generally, a unit can attack after moving, but cannot move after attacking every turn.
-* Smooth unit interaction: can attack without reselecting unit that just moved and reselecting unit when previous selected unit has not moved
-* Units have moved or attacked controlled by you will no longer display movement and attack finder. However, anytime during your turn you may select opponent's units to see their movement and attack finder in order to make a good move.
-* HP bar width scales with unit max HP and anchored to parent sprite model.
+### Testing
 
-### Gameplay Must-knows:
+* [Mocha](https://mochajs.org/) - test framework
+* [Shouldjs](https://shouldjs.github.io/) and [Supertest](https://github.com/visionmedia/supertest) for API tests
 
-* Damage type - armor type calculation, actual damage done:
+### Dev/Build Tools
+
+* [Webpack](https://webpack.github.io/) and [Babel](https://babeljs.io/) for transpiling
+
+## File Structure
+
+    hackify/
+    |
+    |--db/
+    |   |--schema
+    |   |
+    |--public/
+    |   |--assets/
+    |   |--styles/
+    |   |
+    |--spec/
+    |   |--client/
+    |   |--server/
+    |   |
+    |--server/
+    |   |--helpers
+    |   |
+    |--src/
+    |   |--components/
+    |   |--modules/
+    |   |--redux/
+    |   |--visualization/
+
+## Installing Dependencies
+
+- Mocha for testing
+
 ```
-"light damage vs. light armor": 1, "light damage vs. medium armor": 1, "light damage vs. heavy armor": 0.5
-"medim damage vs. light armor": 1, "medim damage vs. medium armor": 1, "medim damage vs. heavy armor": 1
-"heavy damage vs. light armor": 0.5, "heavy damage vs. medium armor": 1, "heavy damage vs. heavy armor": 1.5
+$ npm install mocha -g
 ```
 
-### Dev process
+- Webpack for building
 
-* units initial stats inspired by http://kongregate.wikia.com/wiki/Units_of_Battalion_Versions
-* fonts used from https://cooltext.com/
+```
+$ npm install webpack -g
+```
+
+- Dependencies installation
+
+```
+$ npm install
+```
+
+## Starting the App
+
+From the root directory, run ```npm start``` to start the server
+Navigate to ```http://localhost:8080```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for guidelines.
+
+## License
+
+MIT
