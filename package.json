@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/SaltySashimi/cookie_meets_bagel#readme",
   "dependencies": {
+    "mysql": "^2.12.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
