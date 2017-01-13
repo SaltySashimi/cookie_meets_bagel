@@ -1,0 +1,51 @@
+/* Create a database after connecting to the database server */
+CREATE DATABASE bagel;
+
+use bagel;
+
+-- CREATE TABLE test (
+--   raterId int NOT NULL AUTO_INCREMENT,
+--   firstname varchar(20),
+--   lastname varchar(20),
+--   gender varchar(1),
+--   username varchar(20),
+--   email varchar(100),
+--   password varchar(100),
+--   picture  varchar(100),
+--   PRIMARY KEY(raterId)
+-- );
+
+-- CREATE TABLE rated (
+--   ratedId int NOT NULL AUTO_INCREMENT,
+--   name varchar(20),
+--   gender varchar(1),
+--   pic varchar(50),
+--   PRIMARY KEY(ratedId)
+-- );
+--
+-- /* Create other tables and define schemas for them here! */
+-- CREATE TABLE ratings (
+--   id int NOT NULL AUTO_INCREMENT,
+--   activityLevel int NOT NULL,
+--   spendingLevel int NOT NULL,
+--   partyingLevel int NOT NULL,
+--   nerdyLevel int NOT NULL,
+--   talkativeLevel int NOT NULL,
+--   raterId int NOT NULL,
+--   ratedId int NOT NULL,
+--   comment varchar(256),
+--   PRIMARY KEY(id),
+--   FOREIGN KEY (raterId)
+--     REFERENCES rater(raterId)
+--       ON DELETE CASCADE,
+--   FOREIGN KEY (ratedId)
+--     REFERENCES rated(ratedId)
+--       ON DELETE CASCADE
+-- );
+--
+--
+
+
+/*  Execute this file from the command line by typing:
+ *    mysql -u root < db/schema.sql
+ *  to create the database and the tables.*/
