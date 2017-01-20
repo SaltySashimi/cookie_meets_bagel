@@ -1,7 +1,18 @@
 /* Create a database after connecting to the database server */
-CREATE DATABASE bagel;
 
+CREATE DATABASE IF NOT EXISTS bagel
 use bagel;
+
+CREATE TABLE IF NOT EXISTS users (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  username varchar(20),
+  firstname varchar(20),
+  lastname varchar(20),
+  dob DATE,
+  sex CHAR(1),
+  PRIMARY KEY (id)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
 
 -- CREATE TABLE test (
 --   raterId int NOT NULL AUTO_INCREMENT,

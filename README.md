@@ -1,5 +1,7 @@
 # 情有可缘
 
+db framework:https://blog.ragingflame.co.za/2014/7/21/using-nodejs-with-mysql
+
 Voice-activated music player, which provides variety of useful information for every song that plays.
 
 ## Tech Stack

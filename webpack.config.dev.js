@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var config = {
     devtool: 'cheap-module-eval-source-map',
     entry: [
-        './src/index.js',
+        './src_weather_app/index.js',
         'webpack-hot-middleware/client'
     ],
     output: {
