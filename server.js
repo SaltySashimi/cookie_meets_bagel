@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const config = require('./webpack.config.dev');
-const connection = require('./db/connection.js');
+// const connection = require('./db/connection.js');
 
 const port = 3000;
 const app = express();
