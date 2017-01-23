@@ -4,11 +4,12 @@ var webpack = require('webpack');
 var config = {
     devtool: 'cheap-module-eval-source-map',
     entry: [
-        './src_react_router_app/index.js',
+        // './src_react_router_app/index.js',
+        '/client/src/app.js',
         'webpack-hot-middleware/client'
     ],
     output: {
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, '/client/dist/'),
         filename: 'bundle.js',
         publicPath: '/dist/'
     },
@@ -17,13 +18,12 @@ var config = {
       new webpack.NoErrorsPlugin()
     ],
     module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loaders: ['babel'],
-                exclude: /node_modules/
-            }
-        ]
+      loaders: [{
+        test: /\.js$/,
+        include: path.join(__dirname, '/client/src'),
+        loaders: ['babel'],
+        exclude: /node_modules/
+      }]
     }
 };
 
