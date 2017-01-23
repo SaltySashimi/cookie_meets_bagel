@@ -4,7 +4,7 @@ var webpack = require('webpack');
 var config = {
     devtool: 'cheap-module-eval-source-map',
     entry: [
-        './src_react_router_app/index.js',
+        './src_auth/index.js',
         'webpack-hot-middleware/client'
     ],
     output: {
