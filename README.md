@@ -12,6 +12,7 @@ db framework:https://blog.ragingflame.co.za/2014/7/21/using-nodejs-with-mysql
 
 run mongodb on windos"
 "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
+run schema sql script `mysql -u root < db/schema.sql`
 
 Voice-activated music player, which provides variety of useful information for every song that plays.
 

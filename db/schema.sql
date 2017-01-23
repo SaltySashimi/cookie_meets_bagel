@@ -1,6 +1,6 @@
 /* Create a database after connecting to the database server */
 
-CREATE DATABASE IF NOT EXISTS bagel
+CREATE DATABASE IF NOT EXISTS bagel;
 USE bagel;
 
 CREATE TABLE IF NOT EXISTS users (
