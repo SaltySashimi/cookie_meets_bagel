@@ -1,5 +1,14 @@
 # 情有可缘
 
+used:
+axios ajax call
+sparkline
+redux-promise
+
+to be used?
+redux thunk: https://github.com/gaearon/redux-thunk  use function instead of norma obj when returning from an redux action for async
+db framework:https://blog.ragingflame.co.za/2014/7/21/using-nodejs-with-mysql
+
 Voice-activated music player, which provides variety of useful information for every song that plays.
 
 ## Tech Stack
