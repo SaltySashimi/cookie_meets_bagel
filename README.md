@@ -9,6 +9,10 @@ to be used?
 redux thunk: https://github.com/gaearon/redux-thunk  use function instead of norma obj when returning from an redux action for async
 db framework:https://blog.ragingflame.co.za/2014/7/21/using-nodejs-with-mysql
 
+
+run mongodb on windos"
+"C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
+
 Voice-activated music player, which provides variety of useful information for every song that plays.
 
 ## Tech Stack

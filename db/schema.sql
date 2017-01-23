@@ -1,7 +1,7 @@
 /* Create a database after connecting to the database server */
 
 CREATE DATABASE IF NOT EXISTS bagel
-use bagel;
+USE bagel;
 
 CREATE TABLE IF NOT EXISTS users (
   id int(11) NOT NULL AUTO_INCREMENT,
