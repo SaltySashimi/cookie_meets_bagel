@@ -7,7 +7,8 @@ const config = require('./webpack.config.dev');
 const app = express();
 const router = require('./router');
 
-const connection = require('./db/connection.js');
+const sequelize = require('./db/sequelize.js');
+const User = require('./models/user.js');
 // const mongoose = require('mongoose');
 
 // DB Setup
@@ -15,7 +16,7 @@ const connection = require('./db/connection.js');
 
 // App Setup
 app.use(morgan('combined'));
-app.use(bodyparser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({ type: '*/*' })); // any incoming request will be parsed as json
 router(app);
 

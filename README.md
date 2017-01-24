@@ -8,6 +8,7 @@ redux-promise
 to be used?
 redux thunk: https://github.com/gaearon/redux-thunk  use function instead of norma obj when returning from an redux action for async
 db framework:https://blog.ragingflame.co.za/2014/7/21/using-nodejs-with-mysql
+architecture http://docs.sequelizejs.com/en/1.7.0/articles/express/
 
 
 run mongodb on windos"
