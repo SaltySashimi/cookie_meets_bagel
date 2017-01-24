@@ -7,14 +7,15 @@ const config = require('./webpack.config.dev');
 const app = express();
 const router = require('./router');
 
-// const connection = require('./db/connection.js');
-const mongoose = require('mongoose');
+const connection = require('./db/connection.js');
+// const mongoose = require('mongoose');
 
 // DB Setup
-mongoose.connect('mongodb://localhost:auth/auth');
+// mongoose.connect('mongodb://localhost:auth/auth');
 
 // App Setup
 app.use(morgan('combined'));
+app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyParser.json({ type: '*/*' })); // any incoming request will be parsed as json
 router(app);
 

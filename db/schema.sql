@@ -1,39 +1,22 @@
 /* Create a database after connecting to the database server */
 
-CREATE DATABASE IF NOT EXISTS bagel;
-USE bagel;
+CREATE DATABASE IF NOT EXISTS snorlax;
+USE snorlax;
 
-CREATE TABLE IF NOT EXISTS users (
-  id int(11) NOT NULL AUTO_INCREMENT,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  id INT NOT NULL AUTO_INCREMENT,
   username varchar(20),
   firstname varchar(20),
   lastname varchar(20),
   dob DATE,
   sex CHAR(1),
-  PRIMARY KEY (id)
+  created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE now(),
+  PRIMARY KEY(id)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 
--- CREATE TABLE test (
---   raterId int NOT NULL AUTO_INCREMENT,
---   firstname varchar(20),
---   lastname varchar(20),
---   gender varchar(1),
---   username varchar(20),
---   email varchar(100),
---   password varchar(100),
---   picture  varchar(100),
---   PRIMARY KEY(raterId)
--- );
-
--- CREATE TABLE rated (
---   ratedId int NOT NULL AUTO_INCREMENT,
---   name varchar(20),
---   gender varchar(1),
---   pic varchar(50),
---   PRIMARY KEY(ratedId)
--- );
---
 -- /* Create other tables and define schemas for them here! */
 -- CREATE TABLE ratings (
 --   id int NOT NULL AUTO_INCREMENT,
