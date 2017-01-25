@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "build:webpack": "NODE_ENV=production webpack --progress --colors --config webpack.config.prod.js",
-    "build": "npm run build:webpack",
+    "start": "nodemon ./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
