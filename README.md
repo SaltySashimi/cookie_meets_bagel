@@ -15,6 +15,19 @@ run mongodb on windos"
 "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"
 run schema sql script `mysql -u root < db/schema.sql`
 
+prefetching:
+
+One thing ORMs are usually good at is minimizing queries. Sequelize offers a prefetching feature, allowing to group two queries in a single one using a JOIN. For instance, if you want to retrieve a Task together with the related User, write the query as follows:
+
+Task.find({ where: { id: id } }, include: ['User'])
+  .error(function(err) {
+    // error callback
+  })
+  .success(function(task) {
+    task.getUser(); // does not trigger a new query
+  });
+
+
 Voice-activated music player, which provides variety of useful information for every song that plays.
 
 ## Tech Stack

@@ -1,18 +1,18 @@
-const mysql = require('mysql');
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize('snorlax', 'root', 'gulpfiction', { dialect: 'mysql' });
-
-sequelize
-  .authenticate()
-  .then(function(err) {
-    console.log('Connection has been established successfully.');
-  })
-  .catch(function (err) {
-    console.log('Unable to connect to the database:', err);
-  });
-
-module.exports = sequelize;
-
+// const mysql = require('mysql');
+// const Sequelize = require('sequelize');
+// const sequelize = new Sequelize('snorlax', 'root', 'gulpfiction', { dialect: 'mysql' });
+//
+// sequelize
+//   .authenticate()
+//   .then(function(err) {
+//     console.log('Connection has been established successfully.');
+//   })
+//   .catch(function (err) {
+//     console.log('Unable to connect to the database:', err);
+//   });
+//
+// module.exports = sequelize;
+//
 
 // const connection = mysql.createConnection({
 //   host: 'localhost',
