@@ -22,6 +22,7 @@
   "homepage": "https://github.com/SaltySashimi/cookie_meets_bagel#readme",
   "dependencies": {
     "axios": "^0.15.3",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.16.0",
     "fs": "0.0.1-security",
     "morgan": "^1.7.0",

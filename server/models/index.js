@@ -39,7 +39,7 @@ Object.keys(db).forEach((modelName) => {
 // sequelize
 //   .sync({force: true})
 //   .then(function() {
-//     console.log('Tables created');
+//     console.log(config.database, ': recreated tables');
 //   })
 //   .catch(function(err) {
 //     console.log(err);
