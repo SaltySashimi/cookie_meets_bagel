@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import Navbar from './navbar';
 
 export default class App extends Component {
   render() {
     return (
-      <div>React simplessss starterss woot</div>
+      <div>
+        <Navbar />
+        asfdfa
+        {this.props.children}
+      </div>
     );
   }
 }

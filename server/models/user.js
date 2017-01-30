@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     password_digest:            { type: DataTypes.STRING, validate: { notEmpty: true } },
   	password:                   { type: DataTypes.VIRTUAL, allowNull: false, validate: { notEmpty: true, len: [3, Infinity] } },
   }, {
-    
+
     hooks: {
       beforeCreate: (user, options, callback) => {
         user.email = user.email.toLowerCase();
@@ -33,9 +33,11 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     instanceMethods: {
-      authenticate: (value) => {
-  			return bcrypt.compareSync(password, this.password);
-  		},
+      comparePassword: function(candidatePassword, cb) {
+        return bcrypt.compare(candidatePassword, this.password_digest, (err, isMatch) => {
+          return err ? cb(err) : cb(null, isMatch);
+        })
+      },
       generateHash: (password) => {
         return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
       },
