@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan'); // logging framework
-const router = require('./router');
+const router = require('./server/router');
 const webpack = require('webpack');
 const config = require('./webpack.config.dev');
 
