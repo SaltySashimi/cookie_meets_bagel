@@ -6,7 +6,6 @@ export default class App extends Component {
     return (
       <div>
         <Navbar />
-        asfdfa
         {this.props.children}
       </div>
     );
