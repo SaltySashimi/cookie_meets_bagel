@@ -17,8 +17,8 @@ const requireSignin = passport.authenticate('local', { session: false });
 // };
 
 module.exports = (app) => {
-  app.get('/', (req, res, next) => {
-    res.sendFile(path.join(__dirname, './index.html'));
+  app.get('*', (req, res, next) => {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
     // res.send(['cat', 'dog', 'dinosaur', 'fish'])
   });
 }
