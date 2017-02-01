@@ -31,7 +31,7 @@ exports.signup = (req, res, next) => {
       }).then((user) => {
         res.json({ success: true, token: tokenForUser(user) });
       }).catch((err) => {
-        console.log("500 Error: ", err.message);
+        console.log("500 Error: ", err.name);
         res.status(500).send({ error: err.name });
       });
   })
