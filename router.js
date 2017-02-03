@@ -9,19 +9,12 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = (app) => {
-  // app.get('/', requireAuth, (req, res) => {
-  //   res.send({ 'hi': "there "});
-  // });
+  app.get('/message', requireAuth, (req, res) => {
+    res.send({ 'message': "super secret message here! "});
+  });
   app.get('*', (req, res, next) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
   });
   app.post('/signin', requireSignin, Authentication.signin);
   app.post('/signup', Authentication.signup);
 };
-
-// module.exports = (app) => {
-//   app.get('*', (req, res, next) => {
-//     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-//     // res.send(['cat', 'dog', 'dinosaur', 'fish'])
-//   });
-// }
