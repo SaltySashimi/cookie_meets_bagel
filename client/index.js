@@ -2,18 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import reduxThunk from 'redux-thunk';
-import { AUTH_USER } from './actions/types';
-
-import App from './components/app';
-import RequreAuth from './components/auth/require_auth';
-import Welcome from './components/welcome'
-import Feature from './components/feature';
-import Signin from './components/auth/signin';
-import Signup from './components/auth/signup';
-import Signout from './components/auth/signout';
 import reducers from './reducers';
+import routes from './routes';
+
+import { AUTH_USER } from './actions/types';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
@@ -26,14 +20,7 @@ if (token) { // update application state
 ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={App}>
-        <IndexRoute component={Welcome} />
-        <Route path="signin" component={Signin} />
-        <Route path="signup" component={Signup} />
-        <Route path="signout" component={Signout} />
-        <Route path="feature" component={RequreAuth(Feature)} />
-
-      </Route>
+      {routes}
     </Router>
   </Provider>
   , document.querySelector('#root'));
