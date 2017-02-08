@@ -10,6 +10,7 @@ redux thunk: https://github.com/gaearon/redux-thunk  use function instead of nor
 db framework:https://blog.ragingflame.co.za/2014/7/21/using-nodejs-with-mysql
 architecture http://docs.sequelizejs.com/en/1.7.0/articles/express/
 
+fa icons: http://fontawesome.io/icons/
 
 run mongodb on windos"
 "C:\Program Files\MongoDB\Server\3.4\bin\mongod.exe"

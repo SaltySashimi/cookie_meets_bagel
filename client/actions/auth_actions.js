@@ -3,8 +3,7 @@ import { browserHistory } from 'react-router';
 import {
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR,
-  FETCH_MESSAGE
+  AUTH_ERROR
 } from './types';
 
 export function signinUser({ email, password }) {
@@ -48,18 +47,4 @@ export function authError(error) {
 export function signoutUser() {
   localStorage.removeItem('token'); // remove JWT
   return { type: UNAUTH_USER };
-}
-
-export function fetchMessage() {
-  return function(dispatch) {
-    axios.get('/message', {
-      headers: { authorization: localStorage.getItem('token') }
-    })
-    .then((resp) => {
-      dispatch({
-        type: FETCH_MESSAGE,
-        payload: resp.data.message
-      });
-    });
-  }
 }
