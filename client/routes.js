@@ -15,11 +15,11 @@ import NotFound from './components/misc/not_found';
 
 export default (
   <Route component={App}>
-    <Route path="/" component={Main}>
+    <Route path="signin" component={Signin} />
+    <Route path="signup" component={Signup} />
+    <Route path="signout" component={Signout} />
+    <Route path="/" component={RequreAuth(Main)}>
       <IndexRoute component={Welcome} />
-      <Route path="signin" component={Signin} />
-      <Route path="signup" component={Signup} />
-      <Route path="signout" component={Signout} />
       <Route path="messages" component={RequreAuth(Inbox)}></Route>
       <Route path="profile" component={RequreAuth(Profile)}></Route>
       <Route path="feature" component={RequreAuth(Feature)} />
