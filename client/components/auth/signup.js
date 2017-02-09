@@ -21,45 +21,59 @@ class Signup extends Component {
     const { handleSubmit, fields: { email, password, passwordConfirm }} = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <div className="auth-form">
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} className="form-validation">
 
-        <fieldset className="form-group">
-          <label>Email:</label>
-          <input className="form-control" {...email} />
-          {email.touched && email.error && <div className="error">{email.error}</div>}
-        </fieldset>
+          <div className="form-title-row"><h1>Register now to see who's in your area</h1></div>
 
-        <fieldset className="form-group">
-          <label>Password:</label>
-          <input className="form-control" {...password} type="password"/>
-          {password.touched && password.error && <div className="error">{password.error}</div>}
-        </fieldset>
+          <div className={email.touched && email.error ? "form-row form-input-email-row form-invalid-data" : "form-row form-input-email-row"}>
+            <label>
+              <span>Email</span>
+              <input {...email} />
+            </label>
+            <span className="form-invalid-data-info">{email.error}</span>
+          </div>
 
-        <fieldset className="form-group">
-          <label>Confirm Password:</label>
-          <input className="form-control" {...passwordConfirm}  type="password"/>
-          {passwordConfirm.touched && passwordConfirm.error && <div className="error">{passwordConfirm.error}</div>}
-        </fieldset>
+          <div className={password.touched && password.error ? "form-row form-input-email-row form-invalid-data" : "form-row form-input-email-row"}>
+            <label>
+              <span>Password</span>
+              <input {...password} type="password"/>
+            </label>
+            <span className="form-invalid-data-info">{password.error}</span>
+          </div>
 
-        {this.renderAlert()}
-        <button action="submit" className="btn btn-primary">Sign Up!</button>
-      </form>
+          <div className={passwordConfirm.touched && passwordConfirm.error ? "form-row form-input-email-row form-invalid-data" : "form-row form-input-email-row"}>
+            <label>
+              <span>Confirm Password</span>
+              <input {...passwordConfirm} type="password"/>
+            </label>
+            <span className="form-invalid-data-info">{passwordConfirm.error}</span>
+          </div>
+
+          {this.renderAlert()}
+          <div className="form-row">
+            <button action="submit">Sign Up!</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }
 
 function validate(formProps) {
+  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const errors = {};
   ['email', 'password', 'passwordConfirm'].forEach((field) => {
     if (!formProps[field]) {
       let fieldName = field === 'passwordConfirm' ? 'password confirmation' : field;
       errors[field] = `Please enter an ${fieldName}`;
+    } else if (field === 'email' && emailRegex.test(formProps[field]) === false) {
+      errors[field] = `Email format is invalid`;
     }
   });
-  if (formProps.password !== formProps.passwordConfirm) {
+  if (formProps.passwordConfirm && formProps.password !== formProps.passwordConfirm) {
     errors.password = 'Passwords must match';
   }
-
   return errors;
 }
 
