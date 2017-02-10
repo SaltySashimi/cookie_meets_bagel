@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 import * as actions from '../../actions/auth_actions';
 
@@ -51,8 +52,15 @@ class Signup extends Component {
           </div>
 
           {this.renderAlert()}
+
           <div className="form-row">
             <button action="submit">Sign Up!</button>
+          </div>
+
+          <div className="form-row">
+            <div className="form-footer">
+              <span>Already a member?</span><Link to="/signin"> Sign in here »</Link>
+            </div>
           </div>
         </form>
       </div>
