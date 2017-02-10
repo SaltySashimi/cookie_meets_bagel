@@ -3,7 +3,8 @@ import { browserHistory } from 'react-router';
 import {
   AUTH_USER,
   UNAUTH_USER,
-  AUTH_ERROR
+  AUTH_ERROR,
+  CLEAR_AUTH_ERROR
 } from './types';
 
 export function signinUser({ email, password }) {
@@ -42,6 +43,12 @@ export function authError(error) {
     type: AUTH_ERROR,
     payload: error
   };
+}
+
+export function clearAuthError() {
+  return function(dispatch) {
+    dispatch({ type: CLEAR_AUTH_ERROR });
+  }
 }
 
 export function signoutUser() {

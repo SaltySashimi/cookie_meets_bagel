@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 import * as actions from '../../actions/auth_actions';
 
 class Signin extends Component {
+
+  componentWillMount() {
+    this.props.clearAuthError(); // first clear auth errors from clicking submit
+  }
+
   handleFormSubmit({ email, password }) {
     this.props.signinUser({ email, password });
   }
@@ -11,7 +17,7 @@ class Signin extends Component {
     if (this.props.errorMessage && !this.props.authenticated) {
       return (
         <div className="alert alert-danger">
-          <strong>Oops!</strong>{this.props.errorMessage}
+          <strong>Oops! </strong>{this.props.errorMessage}
         </div>
       )
     }
@@ -21,23 +27,38 @@ class Signin extends Component {
     const { handleSubmit, fields: { email, password }} = this.props;
 
     return (
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} className="form-validation">
+      <div className="auth-form">
+        <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))} className="form-validation">
 
-        <div class="form-title-row"><h1>Sign In</h1></div>
+          <div className="form-title-row"><h1>Sign in to see who's in your area</h1></div>
 
-        <fieldset className="form-group">
-          <label>Email:</label>
-          <input {...email} className="form-control" />
-        </fieldset>
+          <div className="form-row form-input-email-row">
+            <label>
+              <span>Email</span>
+              <input {...email} />
+            </label>
+          </div>
 
-        <fieldset className="form-group">
-          <label>Password:</label>
-          <input type="password" {...password} className="form-control" />
-        </fieldset>
+          <div className="form-row form-input-email-row">
+            <label>
+              <span>Password</span>
+              <input {...password} type="password"/>
+            </label>
+          </div>
 
-        {this.renderAlert()}
-        <button action="submit" className="btn btn-primary">Sign In</button>
-      </form>
+          {this.renderAlert()}
+
+          <div className="form-row">
+            <button action="submit">Continue</button>
+          </div>
+
+          <div className="form-row">
+            <div className="form-footer">
+              <span>Not a member?</span><Link to="/signup"> Sign up here »</Link>
+            </div>
+          </div>
+        </form>
+      </div>
     );
   }
 }

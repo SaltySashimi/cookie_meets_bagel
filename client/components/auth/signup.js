@@ -4,6 +4,11 @@ import { reduxForm } from 'redux-form';
 import * as actions from '../../actions/auth_actions';
 
 class Signup extends Component {
+
+  componentWillMount() {
+    this.props.clearAuthError(); // first clear auth errors from clicking submit
+  }
+
   handleFormSubmit(formProps) {
     this.props.signupUser(formProps);
   }
